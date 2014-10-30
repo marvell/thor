@@ -91,10 +91,10 @@ class Thor
       #
       def say_status(status, message, log_status = true)
         return if quiet? || log_status == false
-        spaces = "  " * (padding + 1)
+        spaces = "  "
         color  = log_status.is_a?(Symbol) ? log_status : :green
 
-        status = status.to_s.rjust(12)
+        status = status.to_s.rjust(@padding)
         status = set_color status, color, true if color
 
         buffer = "#{status}#{spaces}#{message}"
